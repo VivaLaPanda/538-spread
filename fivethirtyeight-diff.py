@@ -72,12 +72,14 @@ def main(args):
     predictItData = getPredictItData()
 
     diffs = {key: five38Data[key] - predictItData.get(key, 0) for key in five38Data}
+    absDiffs = {key: abs(five38Data[key] - predictItData.get(key, 0)) for key in five38Data}
 
-    diffCounter = Counter(diffs) 
+    diffCounter = Counter(absDiffs) 
 
     print("All Diffs: \n", diffs, "\n\n")
     high = diffCounter.most_common(5)
-    print("Highest 5: \n", high, "\n")
+    highest = [{state[0]: diffs[state[0]]} for state in high]
+    print("Highest 5: \n", highest, "\n")
 
     return
 
