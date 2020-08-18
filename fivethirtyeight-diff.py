@@ -75,8 +75,9 @@ def main(args):
 
     diffCounter = Counter(diffs) 
 
+    print("All Diffs: \n", diffs, "\n\n")
     high = diffCounter.most_common(5)
-    print(high)
+    print("Highest 5: \n", high, "\n")
 
     return
 
